@@ -20,6 +20,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
    
     @events = @user.events.paginate(page: params[:page])
+    @past_events = Event.past.order(:date).paginate(page: params[:page], per_page: 5)
+		@upcoming_events = Event.upcoming.order(:date).paginate(page: params[:page], per_page: 5)
   end
 
 private

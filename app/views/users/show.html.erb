@@ -19,8 +19,19 @@
     <% if @user.events.any? %>
       <h3>Events (<%= @user.events.count %>)</h3>
       <ol class="events">
-      <%= render @events %>
       
+      ====
+          <div class="events-index-upcoming">
+          <%= render 'upcoming_events' %>	
+          </div>
+
+	        <div class="events-index-past">
+		      <%= render 'past_events' %>
+	        </div>	
+
+	
+     
+            ====
       </ol>
       <%= will_paginate @events %>
       <% else %>
