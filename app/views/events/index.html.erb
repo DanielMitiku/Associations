@@ -1,0 +1,28 @@
+<div class="container">
+
+
+			<h1 class= "events-index"><center>All Events</center></h1>
+			<% if logged_in? %>
+			<p> Logged in : <%= current_user.name %>
+			<% end %>
+			<h3> <%= link_to "Create New Event", new_event_path,  class: "btn btn-sml btn-primary" %></h3>
+
+<% if @events.any? %>
+	
+
+<div class="events-index-upcoming">
+<%= render 'upcoming_events' %>	
+</div>
+
+	<div class="events-index-past">
+		<%= render 'past_events' %>
+	</div>	
+
+	
+<% else %>
+	 There are no events
+	
+<% end %>
+
+	</div>
+
