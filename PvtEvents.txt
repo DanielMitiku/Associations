@@ -1,0 +1,97 @@
+New app creation:
+	- rails new .
+	: define helpers in a/h/app_helper.rb
+	   module AppHelp
+	   def method (call elsewhere)
+
+	: call helpers elsewhere
+	  (ex: a/v/layouts/ap.html.erb)
+
+	: Main layout of the app in 'a/v/l/ap.html.erb'
+	<body>
+	...
+	...
+	render header
+	yield... all web pages are called here
+	render footer
+
+Add Users:
+	- rails gen model User name:str  etc.
+	db migrate
+	a/m/user.rb
+	  validations
+	  associations
+	  has_sec_pwd
+	Gemfile-bcrypt
+
+	- rails gen ctlr Users new create etc.
+	: a/v/new.html.erb, cre..  dest.. show..
+	: a/h/u_h.rb
+	: a/c/u_c.rb with methods 
+
+Add routes:
+	resources - all routes incl. index
+	get 'users/new' -> localhost:3000/users/new'
+	resource - 	
+
+Signup:
+
+Login :
+
+- rails generate controller Sessions new
+- vi config/routes.rb
+     	  get    '/login',   to: 'sessions#new'
+	  post   '/login',   to: 'sessions#create'
+	  delete '/logout',  to: 'sessions#destroy'
+- vi a/v/se/new.html.erb
+	<%= form_for(:session, url: login_path) do |f| %>
+	<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+- vi a/c/s_c.rb
+	def new
+	def create
+	  ...
+	def destroy
+	  ...
+- vi a/c/ap_c.rb
+	include SessionsHelper
+- vi a/h/sessions_helper.rb
+	def log_in
+	def current_user
+	def logged_in?
+	def log_out
+- vi a/v/l/_header.html.erb
+	' if logged in -log out else log in '
+- vi a/a/jss/appln.js
+	require jquery, bootstrap
+
+----------
+Basic Events :
+- rails gen model Event description:text user:references?
+- vi a/m/e.rb
+	belongs_to user
+- vi db/...events.rb
+	add_index :events, [:user_id, created_at](for reverse order display)
+- db/mig
+	event validations :
+	a/m/event.rb
+	- validates :user_id, presence: true
+	(event belongs to user, user has many events
+	a/m/user.rb
+	has_many_events
+	a/m/event.rb
+	default_scope ->{ order(crreated_at: :desc)}
+	a/m/user.rb
+	has_many_events, dependent: :destroy
+- rails db:migrate:reset
+- rails db:seed
+
+- rails gen ctrl Events
+	a/v/events.html.erb
+	a/c/e_c.rb
+		def show
+		def new
+		def create
+		def index
+		def destroy
+	private
+		def event_params
