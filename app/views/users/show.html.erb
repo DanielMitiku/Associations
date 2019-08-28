@@ -20,7 +20,7 @@
       <h3>Events (<%= @user.events.count %>)</h3>
       <ol class="events">
       
-      ====
+     
           <div class="events-index-upcoming">
           <%= render 'upcoming_events' %>	
           </div>
@@ -33,7 +33,7 @@
      
             ====
       </ol>
-      <%= will_paginate @events %>
+     
       <% else %>
       <p>Visit home page to see the available events or to create your own event</p>
     <% end %>

@@ -1,6 +1,7 @@
 
-      <h3>Events </h3>
-<div class = "row event-body"> 
+	  <h3>Events </h3>
+	  <div class = "row event-body">
+<div class = "row "> 
       <div class="col col-md-3">
             
             Created By : <%= @event.user.name %>
@@ -16,29 +17,30 @@
 </div>
 
 
-<div class="row">
+<div class="row ">
 		<div class="col">
 			<h2>Attendees</h2>
 		</div>
 	</div>
 
-<div class="row">
-	<div class="col">
+<div class="row ">
+	<div class="col attendee-name">
 		<% if @attendees.any? %>
 			<%= will_paginate @attendees %>
 			<% @attendees.each do |attendee| %>
-			<li><%= link_to attendee.name, attendee %>.</li>
+			<li><%= link_to attendee.name, attendee %></li>
 			<% end %>
 
 			<%= will_paginate @attendees %>
 	<% end %>
 
 	</div>
-      </div>
+</div>
       <% if logged_in? && @event.event_date >= Time.now %>
 			<%= render 'add_attendee' %>
 		<% end %>
       
             <div class="container event-attendees">
 	
-      </div>
+	  </div>
+	  </div>

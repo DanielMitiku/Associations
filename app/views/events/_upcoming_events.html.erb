@@ -2,10 +2,7 @@
 	<div class="row events-header">
 		Upcoming Events
 	</div>	
-	<div class="row paginate">
-		<%= will_paginate @upcoming_events, :next_label => '&rArr;', :previous_label => '&lArr;' %>
-	</div>
-    
+	
 	<div>	
 	
 		<% @upcoming_events.each do |event| %>
@@ -17,7 +14,10 @@
 		<% end %>	
 			
 	</div>	
-	
+	<div class="row paginate">
+		<%= will_paginate @upcoming_events, :next_label => '&rArr;', :previous_label => '&lArr;' %>
+	</div>
+    
 
 <% end %>
 
