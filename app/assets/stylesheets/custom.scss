@@ -241,7 +241,7 @@ input {
 }
 .event-body {
   border:   1px solid black;
-  height: 200px;
+  height: auto;
   margin-bottom: 10px;
 }
 .events-header {
@@ -282,7 +282,7 @@ input {
 }
 
 .event-body .attendee-name li a{
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 aside {
   textarea {

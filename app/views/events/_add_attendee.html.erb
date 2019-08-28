@@ -1,22 +1,19 @@
 <%= form_for(@event) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
-	<div class="container add-attendee">		
-		<div class="row"></br>
-			<div class="col-lg-3">
-			<p>Add your name to attendees.</p>
-			</div>
+	<div class="container">
+
+		<div class="row text-center"></br>
+			<p>Add your name to attendees &nbsp <%= f.check_box :event_attendees %></p>
+		</div>
 		
-
-		
-
-			<div class=" col col-lg-1 check_box">
-				<%= f.check_box :event_attendees %>
+		<div class="row">
+			<div class="col-md-4">
 			</div>
-
-			<div class="col col-lg-6 button">	
+			<div class="text-center col-md-4 button">	
 				<%= f.submit "Attend this event", class: "btn btn-primary" %>
 			</div>
 		</div>
-</div>			
+		<% end %>
+	</div>			
 			
-	<% end %>		
+			
