@@ -16,26 +16,28 @@
   </aside>
   <div class="col-md-8">
   
-    <% if @user.events.any? %>
-      <h3>Events (<%= @user.events.count %>)</h3>
-      <ol class="events">
-      
-     
-          <div class="events-index-upcoming">
-          <%= render 'upcoming_events' %>	
-          </div>
-
-	        <div class="events-index-past">
-		      <%= render 'past_events' %>
-	        </div>	
-
+  <div class="container created-events">
+	<% if @created_events.any? %>
 	
-     
-            ====
-      </ol>
-     
-      <% else %>
-      <p>Visit home page to see the available events or to create your own event</p>
-    <% end %>
+		<%= render 'created_events' %>
+	<% else %>
+		<div class="events-header">	
+		 	<p>This user has not created any events</p>
+		</div> 
+	<% end %>
+</div>
+
+<div class="container attended-events">
+	
+	<% if @attended_events.any? %>
+		<%= render 'attended_events' %>
+  <% else %>
+  <div class="events-header">	
+    <p>The user has not signed up to attend any events yet.	</p>	
+    </div>
+	<% end %>	
+</div>
+  
+    
   </div>
 </div>

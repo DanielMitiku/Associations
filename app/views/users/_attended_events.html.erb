@@ -1,0 +1,30 @@
+
+
+
+<div class="events-wrapper">
+	<div class="row events-header ">
+		<h2 class="text-left">Events User is Attending.</h2>
+	</div>
+	</br></br>
+	<% if @attended_events.any? %>
+		
+
+  	
+  		<div class="card card-body">
+				<% @attended_events.each do |event| %>
+
+					<div class="row" id="event-row">
+						<p class="event-title"><%= link_to event.description, event %></p> 
+						<p>Date: <%= event.event_date.strftime("%d/%m/%y") %></p>
+						<hr>
+					</div>
+					
+				<% end %>
+			</div>
+						
+	<% end %>
+
+	
+</div>
+
+

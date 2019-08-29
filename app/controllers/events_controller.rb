@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+	before_action :login_user, only: [:create, :edit, :new, :update, :destroy]
+
     def new
         @event = Event.new
     end
@@ -31,17 +33,20 @@ class EventsController < ApplicationController
     end
 
 	def update
-		if attendee_checked?
 			add_attendee
-		else
-			redirect_back fallback_location: events_url
-		end	
 	end
 
     def destroy
     end
 
-    private
+	private
+	
+	def login_user
+		if !logged_in?
+			flash[:danger]= "Please login to create event"
+			redirect_to login_url
+		end
+	end
 
     def event_params
 		params.require(:event).permit( :description, :event_date)

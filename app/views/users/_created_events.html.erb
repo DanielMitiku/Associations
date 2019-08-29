@@ -1,0 +1,31 @@
+
+
+<div class="events-wrapper">
+	<div class="row events-header">
+		<h2 class="text-left">Events Created by User.</h2>
+	</div>
+</br></br>
+	<%  if @created_events %>
+		
+  
+
+  	
+  		<div class="card card-body">
+				<% @created_events.each do |event| %>
+
+					<div class="row" id="event-row">
+						<p class="event-title"><%= link_to event.description, event %></p> 
+						<p>Date: <%= event.event_date.strftime("%d/%m/%y") %></p>
+						<hr>
+					</div>
+				<% end %>
+			
+		</div>	
+		
+	<% end %>
+
+	
+		
+</div>
+
+

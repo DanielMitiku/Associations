@@ -6,7 +6,7 @@
 	<div>	
 	
 		<% @upcoming_events.each do |event| %>
-			<div class="row event-row">
+			<div class="row user-event-row">
 			<p class= "event-creator">Created By : <%= event.user.name %> </p>
             <p class= "event-description">Description :<%= link_to event.description, event %> </p>
 			<p class= "event-date">Date & Time :	<%= event.event_date %></p>

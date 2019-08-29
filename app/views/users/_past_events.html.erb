@@ -3,12 +3,9 @@
 		Past Events
 	</div>
 
-	<div class="row paginate">
-		<%= will_paginate @past_events, :next_label => '&rArr;', :previous_label => '&lArr;' %>
-	</div>
-    <div>
+	<div>
 		<% @past_events.each do |event| %>
-            <div class = "row event-row"> 
+            <div class = "row user-event-row"> 
            
         
 			<p class= "event-creator">Created By : <%= event.user.name %> </p>
@@ -21,14 +18,15 @@
 				<p class= "event-delete">  <%= link_to "delete", event, method: :delete, 
 																	data: { confirm: "Are you sure?" } %></p>
 			<% end %>
-			</div>		
-      </div>
-      <% end %>			
-                
+			</div>
+			<% end %>	
 			
-	<% end %>
+	</div>		
+	<div class="row paginate">
+			<%= will_paginate @past_events, :next_label => '&rArr;', :previous_label => '&lArr;' %>
+	</div>
+
+<% end %>
 	
 
-	<div class="row paginate">
-		<%= will_paginate @past_events, :next_label => '&rArr;', :previous_label => '&lArr;' %>
-	</div>
+	
