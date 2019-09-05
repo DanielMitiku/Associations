@@ -14,7 +14,7 @@
 	
 		
 		    
-            <% if logged_in? %>
+            <% if current_user?(event.user)  %>
 				<p class= "event-delete">  <button><%= link_to "delete", event, method: :delete, 
 																	data: { confirm: "Are you sure?" } %></button></p>
 			<% end %>

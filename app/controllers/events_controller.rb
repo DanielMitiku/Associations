@@ -36,7 +36,13 @@ class EventsController < ApplicationController
 			add_attendee
 	end
 
-    def destroy
+	def destroy
+		
+	Event.find(params[:id]).destroy
+		flash[:success]='Event deleted successfully'
+		redirect_to events_url
+
+
     end
 
 	private

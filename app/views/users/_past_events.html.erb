@@ -12,9 +12,8 @@
             <p class= "event-description">Description : <%= event.description %></p>
 			<p class= "event-date">Date & Time :	<%= event.event_date %></p>
 	
-		
 		    
-            <% if logged_in? %>
+            <% if current_user?(event.user) %>
 				<p class= "event-delete">  <%= link_to "delete", event, method: :delete, 
 																	data: { confirm: "Are you sure?" } %></p>
 			<% end %>
