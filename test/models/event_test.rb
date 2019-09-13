@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class EventTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @user = users(:one)
+   
+    @event = @user.events.build(description: "Lorem ipsum", event_date: Date.new(2020, 12, 8)	 )
+  end
+  test "should be valid" do
+    assert @event.valid?
+  end
+  
 end

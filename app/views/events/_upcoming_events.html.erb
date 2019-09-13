@@ -3,8 +3,7 @@
 		Upcoming Events
 	</div>	
 	
-	<div>	
-	
+	<div>		
 		<% @upcoming_events.each do |event| %>
 			<div class="row user-event-row">
 			<p class= "event-creator">Created By : <%= event.user.name %> </p>
@@ -15,9 +14,7 @@
 				<p class= "event-delete">  <button><%= link_to "delete", event, method: :delete, 
 																	data: { confirm: "Are you sure?" } %></button></p>
 			<% end %>
-			</div>
-
-			
+			</div>			
 		<% end %>	
 			
 	</div>	

@@ -22,10 +22,8 @@ class EventsController < ApplicationController
     def create
         @event =  current_user.events.build(event_params)
 		if @event.save
-      flash[:success] = "New event created"
-      if attendee_checked?
+      		flash[:success] = "New event created"
         @event.event_attendees.create(:attendee_id => current_user.id)
-       end
 			redirect_to @event
 		else
 			render 'new' 
@@ -33,7 +31,7 @@ class EventsController < ApplicationController
     end
 
 	def update
-			add_attendee
+		add_attendee
 	end
 
 	def destroy
@@ -58,7 +56,7 @@ class EventsController < ApplicationController
 		params.require(:event).permit( :description, :event_date)
 	end	
 
-  def attendee_checked?
+  	def attendee_checked?
 		params[:event][:event_attendees] == '1'
 	end
 
