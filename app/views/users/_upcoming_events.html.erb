@@ -1,29 +1,23 @@
 <% if @events.any? %>
 	<div class="row events-header">
 		Upcoming Events
-	</div>	
-	
-	<div>	
-	
+	</div>		
+	<div>		
 		<% @upcoming_events.each do |event| %>
 			<div class="row user-event-row">
 			<p class= "event-creator">Created By : <%= event.user.name %> </p>
-            <p class= "event-description">Description :<%= link_to event.description, event %> </p>
+			<p class= "event-description">Description :<%= link_to event.description, event %> </p>
 			<p class= "event-date">Date & Time :	<%= event.event_date %></p>
-
-			<% if current_user?(event.user)  %>
-				<p class= "event-delete">  <button><%= link_to "delete", event, method: :delete, 
+		<% if current_user?(event.user)  %>
+			<p class= "event-delete">  <button><%= link_to "delete", event, method: :delete, 
 																	data: { confirm: "Are you sure?" } %></button></p>
 			<% end %>
 			</div>
-		<% end %>	
-			
+		<% end %>			
 	</div>	
 	<div class="row paginate">
 		<%= will_paginate @upcoming_events, :next_label => '&rArr;', :previous_label => '&lArr;' %>
 	</div>
-    
-
 <% end %>
 
 	

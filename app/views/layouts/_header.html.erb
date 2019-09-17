@@ -7,14 +7,11 @@
         <% if !logged_in? %>
         <li><%= link_to "Sign Up",  signup_path   %></li>
         <% end %>
-        <% if logged_in? %>
-         
-          <li><%= link_to current_user.name, current_user %></li>
-              
+        <% if logged_in? %>     
+          <li><%= link_to current_user.name, current_user %></li>      
           <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
-              </li>
-  
+          <%= link_to "Log out", logout_path, method: :delete %>
+          </li>
         <% else %>
           <li><%= link_to "Log in", login_path %></li>
         <% end %>
