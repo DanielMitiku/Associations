@@ -11,12 +11,5 @@ class UserTest < ActiveSupport::TestCase
 
 
 
-RSpec.describe User, type: :model do
-  it { should have_many(:events) }
-
-  it "has many events" do
-    expect(User).to have_many(:events)
-  end
-end
 end
 
