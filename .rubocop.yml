@@ -8,6 +8,7 @@ AllCops:
     - public/*
     - spec/*
     - storage/*
+    - test/*
     - tmp/*
     - vendor/*
     - recipes/basic.rb
