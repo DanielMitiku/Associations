@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @attendees = @event.attendees.all.paginate(page: params[:page], per_page: 12)
-   end
+  end
 
   def index
     @events = Event.all.paginate(page: params[:page])
@@ -37,7 +37,7 @@ class EventsController < ApplicationController
     Event.find(params[:id]).destroy
     flash[:success] = 'Event deleted successfully'
     redirect_to events_url
-    end
+  end
 
   private
 
@@ -50,11 +50,11 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:description, :event_date)
-   end
+  end
 
   def attendee_checked?
     params[:event][:event_attendees] == '1'
-   end
+  end
 
   def add_attendee
     @event = Event.find(params[:id])
