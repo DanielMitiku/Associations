@@ -1,2 +1,21 @@
+AllCops:
+  Exclude:
+    - bin/*
+    - config/*
+    - lib/*
+    - db/*
+    - log/*
+    - public/*
+    - spec/*
+    - storage/*
+    - tmp/*
+    - vendor/*
+    - recipes/basic.rb
+    - attributes/*.rb
 Documentation:
   Enabled: false
+Metrics/LineLength:
+  Max: 300
+  Enabled: false
+MethodLength:
+  Max: 35
