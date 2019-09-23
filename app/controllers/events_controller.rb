@@ -30,7 +30,8 @@ class EventsController < ApplicationController
   end
 
   def update
-    add_attendee
+    event = Event.find(params[:id])
+    add_attendee(event)
   end
 
   def destroy
@@ -42,10 +43,10 @@ class EventsController < ApplicationController
   private
 
   def login_user
-    unless logged_in?
-      flash[:danger] = 'Please login to create event'
-      redirect_to login_url
-    end
+    return if logged_in?
+
+    flash[:danger] = 'Please login to create event'
+    redirect_to login_url
   end
 
   def event_params
@@ -56,20 +57,13 @@ class EventsController < ApplicationController
     params[:event][:event_attendees] == '1'
   end
 
-  def add_attendee
-    @event = Event.find(params[:id])
-    if current_user.attended_event_ids.include?(@event.id)
-      flash[:danger] = 'You are already attending this event'
-     # redirect_to @event
-    elsif @event.event_date < Time.now
-      flash[:danger] = 'That event has finished. You can not be added to the attendees.'
-      #redirect_to @event
-
+  def add_attendee(event)
+    if current_user.attended_event_ids.include?(event.id) || event.event_date < Time.now
+      flash[:danger] = 'event finished or already attending'
     else
-      @event.attendees << current_user
+      event.attendees << current_user
       flash[:success] = 'Your name have been added to the guestlist.'
-     # redirect_to @event
     end
-    redirect_to @event
+    redirect_to event
   end
 end
