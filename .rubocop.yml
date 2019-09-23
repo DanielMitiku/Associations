@@ -1,18 +1,18 @@
 AllCops:
   Exclude:
-    - bin/*
-    - config/*
-    - lib/*
-    - db/*
-    - log/*
-    - public/*
-    - spec/*
-    - storage/*
-    - test/*
-    - tmp/*
-    - vendor/*
-    - recipes/basic.rb
-    - attributes/*.rb
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'lib/**/*'
+    - 'db/**/*'
+    - 'log/**/*'
+    - 'public/**/*'
+    - 'spec/**/*'
+    - 'storage/**/*'
+    - 'test/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'recipes/basic.rb'
+    - 'attributes/*.rb'
 Documentation:
   Enabled: false
 Metrics/LineLength:

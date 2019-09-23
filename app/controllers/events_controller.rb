@@ -60,15 +60,16 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     if current_user.attended_event_ids.include?(@event.id)
       flash[:danger] = 'You are already attending this event'
-      redirect_to @event
+     # redirect_to @event
     elsif @event.event_date < Time.now
       flash[:danger] = 'That event has finished. You can not be added to the attendees.'
-      redirect_to @event
+      #redirect_to @event
 
     else
       @event.attendees << current_user
       flash[:success] = 'Your name have been added to the guestlist.'
-      redirect_to @event
+     # redirect_to @event
     end
+    redirect_to @event
   end
 end

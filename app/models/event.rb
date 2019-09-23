@@ -18,8 +18,8 @@ class Event < ApplicationRecord
   private
 
   def date_cannot_be_past
-    if event_date.present? && event_date < Date.today
-      errors.add(:date, 'can not be in the past.')
-    end
+    
+      errors.add(:date, 'can not be in the past.') if event_date.present? && event_date < Date.today
+    
   end
 end
