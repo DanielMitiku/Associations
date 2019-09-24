@@ -1,0 +1,39 @@
+
+
+
+<div class="events-wrapper">
+	
+	</br></br>
+	<% if @upcoming_attending_events.any? %>
+	<h1 class="text-left">Upcoming Events User is Attending.</h1>
+  		<div class="card card-body">
+				<% @upcoming_attending_events.each do |event| %>
+
+					<div class="row" id="event-row">
+						<p class="event-title"><%= link_to event.description, event %></p> 
+						<p>Date: <%= event.event_date.strftime("%d/%m/%y") %></p>
+						<hr>
+					</div>
+					
+				<% end %>
+			</div>
+						
+	<% end %>
+
+	
+	<% if @past_attending_events.any? %>
+	<h1 class="text-left">Past Events User has attended.</h1>
+  		<div class="card card-body">
+			<% @past_attending_events.each do |event| %>
+				<div class="row" id="event-row">
+					<p class="event-title"><%= link_to event.description, event %></p> 
+					<p>Date: <%= event.event_date.strftime("%d/%m/%y") %></p>
+					<hr>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+
+</div>
+
+

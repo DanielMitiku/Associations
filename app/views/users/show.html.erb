@@ -1,0 +1,36 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>     
+      <% if current_user %>
+        <!--<div class="col">-->
+        <h3> <%= link_to "Create New Event", new_event_path,  class: "btn btn-sml btn-primary" %></h3>
+        <!--</div>-->
+      <% end %>       
+    </section>
+  </aside>
+  <div class="col-md-8">
+  
+    <div class="container created-events">
+    <% if @created_events.any? %>	
+      <%= render 'created_events' %>
+    <% else %>
+      <div class="events-header">	
+      <p>This user has not created any events</p>
+      </div> 
+	  <% end %>
+  </div>
+  <div class="container attended-events">
+	<% if @attended_events.any? %>
+		<%= render 'attended_events' %>
+  <% else %>
+  <div class="events-header">	
+    <p>The user has not signed up to attend any events yet.	</p>	
+    </div>
+	<% end %>	
+  </div>    
+</div>
+</div>

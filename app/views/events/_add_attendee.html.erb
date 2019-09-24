@@ -1,0 +1,20 @@
+<%= form_for(@event) do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+	<div class="container">
+
+		<div class="row text-center"></br>
+			<p></p>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+			</div>
+			<div class="text-center col-md-4 button">				
+			<%= f.submit "Attend this event", class: "btn btn-primary" %>		
+			</div>
+		</div>
+
+		<% end %>
+	</div>			
+			
+			

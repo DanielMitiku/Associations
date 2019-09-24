@@ -1,0 +1,37 @@
+
+<h3>Events </h3>
+<div class = "row event-body">
+	<div class = "row "> 
+      	<div class="col col-md-3">            
+            Created By : <%= @event.user.name %>
+		</div>
+      	<div class="col col-md-6 text-center">          
+            Description : <%= @event.description %>           
+      	</div>
+      	<div class="col col-md-3 text-right">
+            Date and Time: <%= @event.event_date %>           
+		</div>
+	<div class="row ">
+		<div class="col">
+		</br>
+			<h1>Attendees</h1>
+		</div>
+		<div class="row attendee-name">
+			<div class="col-md-3 text-center">
+			<% if @attendees.any? %>
+				<%= will_paginate @attendees %>
+				<% @attendees.each do |attendee| %>
+				<li><%= link_to attendee.name, attendee %></li>
+				<% end %>
+				<%= will_paginate @attendees %>
+				<% end %>
+				<% if logged_in? && @event.event_date >= Time.now && @event.user != current_user %>
+					<%= render 'add_attendee' %>
+				<% end %>
+			</div>			
+		</div>		
+	</div>
+
+</div>
+
+</div>
