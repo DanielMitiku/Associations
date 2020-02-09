@@ -25,7 +25,7 @@ To get a local copy up and running follow these simple example steps.
 
 - Github: [@danielmitiku](https://github.com/DanielMitiku)
 
-👤 **Raja Sekhar **
+👤 **Raja Sekhar**
 
 - Github: [@IBTechRaj](https://github.com/IBTechRaj)
 
